@@ -3,6 +3,7 @@ import numeral from "numeral";
 
 export const sortData = (data) => {
   let sortedData = [...data];
+  console.log(sortedData);
   sortedData.sort((a, b) => {
     if (a > b) {
       return 1;

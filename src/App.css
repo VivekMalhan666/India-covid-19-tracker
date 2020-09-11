@@ -27,6 +27,10 @@ body {
   color: #fc3c3c;
   font-size: 2rem;
 }
+.app__stats {
+  display: flex;
+  justify-content: space-between;
+}
 
 @media (max-width: 990px) {
   .app {

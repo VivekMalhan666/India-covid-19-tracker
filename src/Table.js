@@ -5,14 +5,28 @@ import "./Table.css";
 function Table({ regions }) {
   return (
     <div className="table">
-      {regions.map(({ state, confirmed }) => (
-        <tr>
-          <td>{state}</td>
-          <td>
-            <strong>{numeral(confirmed).format("0,0")}</strong>
-          </td>
-        </tr>
-      ))}
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <strong>States</strong>
+            </th>
+            <th>
+              <strong>Confimed</strong>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {regions.map((region) => (
+            <tr key={region.statecode}>
+              <td>{region.state}</td>
+              <td>
+                <strong>{numeral(region.confirmed).format("0,0")}</strong>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
