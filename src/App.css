@@ -11,10 +11,16 @@ body {
   padding: 10px;
 }
 .app__left {
+  border-radius: 7px;
+  box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.1);
+  padding: 20px;
   flex: 0.9;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
 }
 .app__header {
-  background-color: white;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -24,14 +30,24 @@ body {
   background-color: white;
 }
 .app__header > h1 {
-  color: #fc3c3c;
+  color: #000000;
   font-size: 2rem;
 }
 .app__stats {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-
+.app__stats .MuiCardContent-root {
+  background-color: #f3f2f8;
+}
+.app__left {
+  background-color: #ffffff;
+}
+.app__stats .MuiTypography-root {
+  font-weight: 700;
+  font-size: large;
+}
 @media (max-width: 990px) {
   .app {
     flex-direction: column;
