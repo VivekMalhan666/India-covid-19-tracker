@@ -14,7 +14,7 @@ import InfoBox from "./InfoBox";
 
 function App() {
   const [regions, setRegions] = useState([]);
-  const [region, setInputRegion] = useState("None");
+  const [region, setInputRegion] = useState("");
   const [tableData, setTableData] = useState([]);
   const [stateInfo, setStateInfo] = useState({});
 
@@ -29,15 +29,18 @@ function App() {
           let sortedData = sortData(data.statewise);
           setTableData(sortedData);
           setRegions(regions);
+          setStateInfo(regions[0]);
         });
     };
     getStateData();
+
   }, []);
 
   const onStateChange = async (event) => {
     const stateCode = event.target.value;
     setStateInfo(stateCode);
     setInputRegion(stateCode);
+    console.log(regions[0]);
   };
 
   return (
@@ -46,8 +49,7 @@ function App() {
         <div className="app__header">
           <h1>India's Covid-19 Tracker</h1>
           <FormControl className="app__dropdown">
-            <Select variant="outlined" onChange={onStateChange} value={region}>
-              <MenuItem value="None">Select Here</MenuItem>
+            <Select variant="outlined" onChange={onStateChange} value={stateInfo}>
               {regions.map((region) => (
                 <MenuItem key={region.statecode} value={region}>
                   {region.state}{" "}
